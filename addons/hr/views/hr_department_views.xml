@@ -128,6 +128,7 @@
                     leaves, recruitments, etc.
                 </p>
             </field>
-        </record>        
+        </record>
+      
     </data>
 </odoo>
