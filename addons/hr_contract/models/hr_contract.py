@@ -14,7 +14,7 @@ class Contract(models.Model):
     _description = 'Contract'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Contract Reference', required=True)
+    name = fields.Char('Contract Reference', required=True, readonly=True, default='New')
     active = fields.Boolean(default=True)
     structure_type_id = fields.Many2one('hr.payroll.structure.type', string="Salary Structure Type")
     employee_id = fields.Many2one('hr.employee', string='Employee', tracking=True, domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]")
@@ -65,6 +65,13 @@ class Contract(models.Model):
     calendar_mismatch = fields.Boolean(compute='_compute_calendar_mismatch')
     first_contract_date = fields.Date(related='employee_id.first_contract_date')
 
+    @api.model
+    def create(self, vals):
+        if vals.get('name' , 'New') == 'New':
+            vals['name'] = self.env['ir.sequence'].nect_by_code('sequenza.contratto')
+        result = super(Contract, self).create(vals)
+        return result
+    
     @api.depends('employee_id.resource_calendar_id', 'resource_calendar_id')
     def _compute_calendar_mismatch(self):
         for contract in self:
