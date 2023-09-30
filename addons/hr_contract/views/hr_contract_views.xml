@@ -105,7 +105,7 @@
                     <field name="date_end"/>
                     <field name="employee_id"/>
                     <field name="job_id"/>
-                    <field name="department_id" operator="child_of"/>
+                    <field name="department_id" invisible='1' operator="child_of"/>
                     <field name="resource_calendar_id"/>
                     <filter string="Running" name="running" domain="[('state', '=', 'open')]"/>
                     <filter string="Need Action" name="to_renew" domain="['&amp;', ('state', '=', 'open'), ('kanban_state', '=', 'blocked')]"/>
@@ -151,11 +151,11 @@
                         <group>
                             <field name="active" invisible="1"/>
                             <field name="employee_id"/>
-                            <field name="department_id"/>
+                            <field name="department_id" invisible='1'/>
                             <field name="job_id"/>
                             <field name="company_id" groups="base.group_multi_company"/>
                             <field name="company_country_id" invisible="1"/>
-                            <field name="structure_type_id" domain="['|', ('country_id', '=', False), ('country_id', '=', company_country_id)]"/>
+                            <field name="structure_type_id" invisible='1' domain="['|', ('country_id', '=', False), ('country_id', '=', company_country_id)]"/>
                         </group>
                         <group name="duration_group">
                             <field name="date_start"/>
@@ -190,7 +190,7 @@
                                         <span>/ month</span>
                                     </div>
                                 </group>
-                                <group string="Yearly Advantages" name="yearly_advantages"/>
+                                <group string="Yearly Advantages" invisible='1' name="yearly_advantages"/>
                             </group>
                         </page>
                     </notebook>
