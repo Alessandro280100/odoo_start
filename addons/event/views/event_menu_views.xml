@@ -44,6 +44,5 @@
     <menuitem name="Event Tags Categories"
         id="menu_event_category"
         sequence="20"
-        parent="menu_event_configuration"/>
-
+        parent="menu_event_configuration"/>   
 </data></odoo>

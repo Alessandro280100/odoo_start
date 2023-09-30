@@ -13,7 +13,7 @@
                 <attribute name="attrs">{'readonly': [('notification_type', '!=', 'mail')], 'required': [('notification_type', '=', 'mail')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='template_id']" position="after">
-                <field name="sms_template_id"
+                <field name="sms_template_id" invisible='1'
                     attrs="{'readonly': [('notification_type', '!=', 'sms')], 'required': [('notification_type', '=', 'sms')]}"
                     context="{'default_model': 'event.registration'}"/>
             </xpath>
@@ -32,7 +32,7 @@
                 <attribute name="attrs">{'readonly': [('notification_type', '!=', 'mail')], 'required': [('notification_type', '=', 'mail')]}</attribute>
             </xpath>
             <xpath expr="//field[@name='template_id']" position="after">
-                <field name="sms_template_id"
+                <field name="sms_template_id" invisible='1'
                     attrs="{'readonly': [('notification_type', '!=', 'sms')], 'required': [('notification_type', '=', 'sms')]}"
                     context="{'default_model': 'event.registration'}"/>
             </xpath>
