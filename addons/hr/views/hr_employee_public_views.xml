@@ -9,7 +9,7 @@
                 <search string="Employees">
                     <field name="name" string="Employees" filter_domain="['|',('work_email','ilike',self),('name','ilike',self)]"/>
                     <field name="job_title" string="Job Title"/>
-                    <field name="department_id" string="Department"/>
+                    <field name="department_id" invisible='1' string="Department"/>
                     <field name="company_id" string="Company"/>
                     <separator/>
                     <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
@@ -20,7 +20,7 @@
                     </group>
                     <searchpanel>
                         <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
-                        <field name="department_id" icon="fa-users" enable_counters="1"/>
+                        <field name="department_id" invisible='1' icon="fa-users" enable_counters="1"/>
                     </searchpanel>
                 </search>
              </field>
@@ -54,15 +54,15 @@
                             <group>
                                 <group>
                                     <field name="mobile_phone" widget="phone" options="{'enable_sms': false}"/>
-                                    <field name="work_phone" widget="phone" options="{'enable_sms': false}"/>
+                                    <field name="work_phone" invisible='1' widget="phone" options="{'enable_sms': false}"/>
                                     <field name="work_email" widget="email"/>
-                                    <field name="work_location"/>
+                                    <field name="work_location" invisible='1'/>
                                 </group>
                                 <group>
-                                    <field name="department_id"/>
+                                    <field name="department_id" invisible='1'/>
                                     <field name="company_id" groups="base.group_multi_company"/>
                                     <field name="parent_id"/>
-                                    <field name="coach_id"/>
+                                    <field name="coach_id" invisible='1'/>
                                 </group>
                             </group>
                         <notebook>
