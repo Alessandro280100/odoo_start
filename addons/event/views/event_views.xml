@@ -3,6 +3,7 @@
     <data>
 
         <!-- EVENT.TYPE VIEWS -->
+<!--
         <record model="ir.ui.view" id="view_event_type_form">
             <field name="name">event.type.form</field>
             <field name="model">event.type</field>
@@ -78,7 +79,7 @@
                                     <label for="tag_ids" string="Tags"/>
                                     <div class="row">
                                         <div class="col-12 mt16">
-                                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_quick_create': True}"/>
+                                            <field name="tag_ids" invisible='1' widget="many2many_tags" options="{'color_field': 'color', 'no_quick_create': True}"/>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +107,7 @@
                             </div>
                             <div class="col-12 col-lg-6 o_setting_box" name="event_type_attendees_auto_confirm">
                                 <div class="o_setting_left_pane">
-                                    <field name="auto_confirm"/>
+                                    <field name="auto_confirm" invisible='1'/>
                                 </div>
                                 <div class="o_setting_right_pane">
                                     <label for="auto_confirm"/>
@@ -153,7 +154,7 @@
         <record id="menu_event_type" model="ir.ui.menu">
             <field name="action" ref="event.action_event_type"/>
         </record>
-
+-->
         <!-- EVENT.REGISTRATION ACTIONS -->
         <record id="act_event_registration_from_event" model="ir.actions.act_window">
             <field name="res_model">event.registration</field>
@@ -230,9 +231,9 @@
                                     <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
                                     <field name="date_end" widget="daterange" nolabel="1" class="oe_inline" options="{'related_start_date': 'date_begin'}"/>
                                 </div>
-                                <field name="date_tz"/>
-                                <field name="event_type_id" string="Template" options="{'no_create':True}"/>
-                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_quick_create': True}"/>
+                                <field name="date_tz" invisible='1'/>
+                                <field name="event_type_id" invisible='1' string="Template" options="{'no_create':True}"/>
+                                <field name="tag_ids" invisible='1' widget="many2many_tags" options="{'color_field': 'color', 'no_quick_create': True}"/>
                             </group>
                             <group>
                                 <field name="organizer_id"/>
@@ -246,7 +247,7 @@
                                     <field name="seats_limited"/>
                                     <span attrs="{'invisible': [('seats_limited', '=', False)], 'required': [('seats_limited', '=', False)]}">to <field name="seats_max" class="oe_inline"/> Attendees</span>
                                 </div>
-                                <field name="auto_confirm"/>
+                                <field name="auto_confirm" invisible='1'/>
                             </group>
                         </group>
                         <notebook>
@@ -337,7 +338,7 @@
                     <field name="address_id"/>
                     <field name="date_begin"/>
                     <field name="date_end"/>
-                    <field name="auto_confirm"/>
+                    <field name="auto_confirm" invisible='1'/>
                     <field name="seats_unconfirmed"/>
                     <field name="seats_reserved"/>
                     <field name="seats_used"/>
@@ -421,7 +422,7 @@
             <field name="arch" type="xml">
                 <search string="Events">
                     <field name="name" string="Event"/>
-                    <field name="event_type_id"/>
+                    <field name="event_type_id" invisible='1'/>
                     <field name="user_id"/>
                     <field name="stage_id"/>
                     <filter string="My Events" name="myevents" help="My Events" domain="[('user_id', '=', uid)]"/>
@@ -737,8 +738,8 @@
             sequence="4"
             action="action_registration"
             groups="event.group_event_manager"/>
-
-        <!-- EVENT.MAIL VIEWS -->
+<!--
+         EVENT.MAIL VIEWS 
         <record model="ir.ui.view" id="view_event_mail_form">
             <field name="name">event.mail.form</field>
             <field name="model">event.mail</field>
@@ -788,7 +789,7 @@
                     <field name="template_id" attrs="{'required': [('notification_type', '=', 'mail')]}"/>
                     <field name="scheduled_date"/>
                     <field name="mail_sent" string="Sent"/>
-                    <field name="done"/>
+                    <field name="done" invisible='1'/>
                 </tree>
             </field>
         </record>
@@ -801,5 +802,6 @@
         <record id="menu_event_mail_schedulers" model="ir.ui.menu">
             <field name="action" ref="event.action_event_mail"/>
         </record>
+-->
     </data>
 </odoo>

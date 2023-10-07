@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
 <data>
+<!--
     <record id="event_stage_view_form" model="ir.ui.view">
         <field name="name">event.stage.view.form</field>
         <field name="model">event.stage</field>
@@ -59,6 +60,6 @@
     <record id="event_stage_menu" model="ir.ui.menu">
         <field name="action" ref="event.event_stage_action"/>
     </record>
-
+-->
 </data>
 </odoo>

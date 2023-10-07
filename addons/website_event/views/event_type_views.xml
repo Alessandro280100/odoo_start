@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <record id="event_type_view_form" model="ir.ui.view">
+<!--    <record id="event_type_view_form" model="ir.ui.view">
         <field name="name">event.type.view.form.inherit.website</field>
         <field name="model">event.type</field>
         <field name="inherit_id" ref="event.view_event_type_form"/>
@@ -33,5 +32,5 @@
             </div>
         </field>
     </record>
-
+-->
 </odoo>
