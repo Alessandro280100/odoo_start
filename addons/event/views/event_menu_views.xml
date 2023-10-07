@@ -28,6 +28,7 @@
         sequence="99"
         parent="event_main_menu"
         groups="event.group_event_user"/>
+<!--
     <menuitem name="Event Templates"
         id="menu_event_type"
         sequence="1"
@@ -44,5 +45,6 @@
     <menuitem name="Event Tags Categories"
         id="menu_event_category"
         sequence="20"
-        parent="menu_event_configuration"/>   
+        parent="menu_event_configuration"/> 
+-->
 </data></odoo>

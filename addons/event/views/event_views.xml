@@ -3,6 +3,7 @@
     <data>
 
         <!-- EVENT.TYPE VIEWS -->
+<!--
         <record model="ir.ui.view" id="view_event_type_form">
             <field name="name">event.type.form</field>
             <field name="model">event.type</field>
@@ -153,7 +154,7 @@
         <record id="menu_event_type" model="ir.ui.menu">
             <field name="action" ref="event.action_event_type"/>
         </record>
-
+-->
         <!-- EVENT.REGISTRATION ACTIONS -->
         <record id="act_event_registration_from_event" model="ir.actions.act_window">
             <field name="res_model">event.registration</field>
@@ -737,8 +738,8 @@
             sequence="4"
             action="action_registration"
             groups="event.group_event_manager"/>
-
-        <!-- EVENT.MAIL VIEWS -->
+<!--
+         EVENT.MAIL VIEWS 
         <record model="ir.ui.view" id="view_event_mail_form">
             <field name="name">event.mail.form</field>
             <field name="model">event.mail</field>
@@ -788,7 +789,7 @@
                     <field name="template_id" attrs="{'required': [('notification_type', '=', 'mail')]}"/>
                     <field name="scheduled_date"/>
                     <field name="mail_sent" string="Sent"/>
-                    <field name="done"/>
+                    <field name="done" invisible='1'/>
                 </tree>
             </field>
         </record>
@@ -801,5 +802,6 @@
         <record id="menu_event_mail_schedulers" model="ir.ui.menu">
             <field name="action" ref="event.action_event_mail"/>
         </record>
+-->
     </data>
 </odoo>

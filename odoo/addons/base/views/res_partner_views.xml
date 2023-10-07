@@ -3,6 +3,7 @@
     <data>
 
         <!-- Partner Titles -->
+
         <record id="view_partner_title_tree" model="ir.ui.view">
             <field name="name">res.partner.title.tree</field>
             <field name="model">res.partner.title</field>
@@ -129,7 +130,7 @@
                                 <field name="zip" placeholder="ZIP" class="o_address_zip"/>
                                 <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
                             </div>
-                            <field name="website" widget="url" placeholder="e.g. https://www.odoo.com"/>
+                            <field name="website" invisible='1' widget="url" placeholder="e.g. https://www.odoo.com"/>
                         </group>
                         <group>
                         </group>
@@ -208,7 +209,7 @@
                             <field name="mobile" widget="phone"/>
                             <field name="user_ids" invisible="1"/>
                             <field name="email" widget="email" context="{'gravatar_image': True}" attrs="{'required': [('user_ids','!=', [])]}"/>
-                            <field name="website" widget="url" placeholder="e.g. https://www.odoo.com"/>
+                            <field name="website" invisible='1' widget="url" placeholder="e.g. https://www.odoo.com"/>
                             <field name="title" options='{"no_open": True}' placeholder="e.g. Mister"
                                 attrs="{'invisible': [('is_company', '=', True)]}"/>
                             <field name="active_lang_count" invisible="1"/>
@@ -601,6 +602,7 @@
         </record>
 
         <!-- Categories -->
+
         <record id="view_partner_category_form" model="ir.ui.view">
             <field name="name">Contact Tags</field>
             <field name="model">res.partner.category</field>
