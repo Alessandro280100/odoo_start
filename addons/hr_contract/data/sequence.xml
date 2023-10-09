@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="seq_contratto" model="ir.sequence">
-            <field name="name">Contratto</field>
-            <field name="code">sequenza.contratto</field>
+            <field name="name">Contract</field>
+            <field name="code">hr.contract</field>
             <field name='prefix'>CR</field>
             <field name="padding">4</field>
         </record>

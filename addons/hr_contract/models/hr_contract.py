@@ -68,7 +68,7 @@ class Contract(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('name' , 'New') == 'New':
-            vals['name'] = self.env['ir.sequence'].nect_by_code('sequenza.contratto')
+            vals['name'] = self.env['ir.sequence'].next_by_code('hr.contract')
         result = super(Contract, self).create(vals)
         return result
     
