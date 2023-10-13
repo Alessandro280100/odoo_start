@@ -148,7 +148,7 @@
                     <button name="button_draft" states="cancel" string="Set to Draft" type="object" />
                     <button name="button_cancel" states="draft,to approve,sent,purchase" string="Cancel" type="object" />
                     <button name="button_done" type="object" string="Lock" states="purchase"/>
-                    <button name="button_unlock" type="object" string="Unlock" states="done" groups="purchase.group_purchase_manager"/>
+                    
                     <field name="state" widget="statusbar" statusbar_visible="draft,sent,purchase" readonly="1"/>
                 </header>
                 <sheet>
@@ -248,8 +248,8 @@
                                         }"
                                         force_save="1" optional="show"/>
                                     <field name="price_unit" attrs="{'readonly': [('invoice_lines', '!=', [])]}"/>
-                                    <field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use','=','purchase'), ('company_id', '=', parent.company_id)]" context="{'default_type_tax_use': 'purchase', 'search_view_ref': 'account.account_tax_view_search'}" options="{'no_create': True}" optional="show"/>
-                                    <field name="price_subtotal" widget="monetary"/>
+                                    <field name="taxes_id" invisible='1' widget="many2many_tags" domain="[('type_tax_use','=','purchase'), ('company_id', '=', parent.company_id)]" context="{'default_type_tax_use': 'purchase', 'search_view_ref': 'account.account_tax_view_search'}" options="{'no_create': True}" optional="show"/>
+                                    <field name="price_subtotal" invisible='1' widget="monetary"/>
                                 </tree>
                                 <form string="Purchase Order Line">
                                         <field name="state" invisible="1"/>
@@ -271,7 +271,7 @@
                                                 <field name="qty_received" string="Received Quantity" attrs="{'invisible': [('parent.state', 'not in', ('purchase', 'done'))], 'readonly': [('qty_received_method', '!=', 'manual')]}"/>
                                                 <field name="qty_invoiced" string="Billed Quantity" attrs="{'invisible': [('parent.state', 'not in', ('purchase', 'done'))]}"/>
                                                 <field name="price_unit"/>
-                                                <field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use', '=', 'purchase'), ('company_id', '=', parent.company_id)]" options="{'no_create': True}"/>
+                                                <field name="taxes_id" invisible='1' widget="many2many_tags" domain="[('type_tax_use', '=', 'purchase'), ('company_id', '=', parent.company_id)]" options="{'no_create': True}"/>
                                             </group>
                                             <group>
                                                 <field name="date_planned" widget="date" attrs="{'required': [('display_type', '=', False)]}"/>
@@ -298,7 +298,7 @@
                                      <field name="product_id"/>
                                      <field name="product_qty"/>
                                      <field name="product_uom" groups="uom.group_uom"/>
-                                     <field name="price_subtotal"/>
+                                     <field name="price_subtotal" invisible='1'/>
                                      <field name="price_tax" invisible="1"/>
                                      <field name="price_total" invisible="1"/>
                                      <field name="price_unit"/>
@@ -370,7 +370,7 @@
                                 <group name="invoice_info">
                                     <field name="invoice_status" attrs="{'invisible': [('state', 'in', ('draft', 'sent', 'to approve', 'cancel'))]}"/>
                                     <field name="payment_term_id" attrs="{'readonly': ['|', ('invoice_status','=', 'invoiced'), ('state', '=', 'done')]}" options="{'no_create': True}"/>
-                                    <field name="fiscal_position_id" options="{'no_create': True}" attrs="{'readonly': ['|', ('invoice_status','=', 'invoiced'), ('state', '=', 'done')]}"/>
+                                    <field name="fiscal_position_id" invisible='1' options="{'no_create': True}" attrs="{'readonly': ['|', ('invoice_status','=', 'invoiced'), ('state', '=', 'done')]}"/>
                                 </group>
                             </group>
                         </page>
@@ -675,7 +675,7 @@
                     <field name="price_unit"/>
                     <field name="product_qty"/>
                     <field name="product_uom" groups="uom.group_uom"/>
-                    <field name="price_subtotal" widget="monetary"/>
+                    <field name="price_subtotal" invisible='1' widget="monetary"/>
                     <field name="currency_id" invisible="1"/>
                     <field name="date_planned"  widget="date"/>
                 </tree>
@@ -708,7 +708,7 @@
                                 <field name="price_unit"/>
                             </group>
                             <group>
-                                <field name="taxes_id" widget="many2many_tags"
+                                <field name="taxes_id" invisible='1' widget="many2many_tags"
                                     domain="[('type_tax_use', '=', 'purchase')]"/>
                                 <field name="date_planned" widget="date" readonly="1"/>
                                 <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
