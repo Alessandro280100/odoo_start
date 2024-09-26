@@ -427,6 +427,7 @@
             </field>
         </record>
 
+<!--
         <record id="product_category_search_view" model="ir.ui.view">
             <field name="name">product.category.search</field>
             <field name="model">product.category</field>
@@ -483,7 +484,7 @@
             <field name="search_view_id" ref="product_category_search_view"/>
             <field name="view_id" ref="product_category_list_view"/>
         </record>
-
+-->
 
         <record id="product_packaging_tree_view" model="ir.ui.view">
             <field name="name">product.packaging.tree.view</field>

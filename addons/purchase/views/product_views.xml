@@ -63,6 +63,7 @@
             </field>
         </record>
 
+<!--
         <record id="view_category_property_form" model="ir.ui.view">
             <field name="name">product.category.property.form.inherit.stock</field>
             <field name="model">product.category</field>
@@ -73,7 +74,7 @@
                 </field>
             </field>
         </record>
-
+-->
         <record id="view_product_account_purchase_ok_form" model="ir.ui.view">
             <field name="name">product.template.account.purchase.ok.form.inherit</field>
             <field name="model">product.template</field>

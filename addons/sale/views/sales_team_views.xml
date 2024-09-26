@@ -45,7 +45,7 @@
         </field>
         <field name="search_view_id" ref="sale_order_view_search_inherit_quotation"/>
     </record>
-
+<!--
     <record id="crm_team_salesteams_view_kanban" model="ir.ui.view">
         <field name="name">crm.team.kanban</field>
         <field name="model">crm.team</field>
@@ -128,7 +128,7 @@
         </data>
         </field>
     </record>
-
+-->
     <record id="sales_team.mail_activity_type_action_config_sales" model="ir.actions.act_window">
         <field name="domain">['|', ('res_model_id', '=', False), ('res_model_id.model', 'in', ['sale.order', 'res.partner', 'product.template', 'product.product'])]</field>
     </record>
